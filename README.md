@@ -1,4 +1,4 @@
-# grafos :book: :computer:
+# grafos :book: :computer: :surfer:
 
 Implementação de diversos algoritmos em grafos (C/Python)
 
@@ -10,11 +10,17 @@ O projeto consiste numa coleção de implementações dos principais algoritmos 
 
 Os algoritmos vão ser escritos, majoritariamente, em C e Python.
 
-## Lista de algoritmos
+## Lista de algoritmos em C
 
-| Algoritmo                                                                                   | Linguagem | Status |
-| ------------------------------------------------------------------------------------------- | --------- | ------ |
-| [Matriz de adjacência](https://github.com/codeYann/grafos/blob/main/src/matrizAdjacencia.c) | C         | Ok     |
+| Algoritmo                                                                                     | Linguagem | Status |
+| --------------------------------------------------------------------------------------------- | --------- | ------ |
+| [Matriz de adjacência](https://github.com/codeYann/grafos/blob/main/src/C/matrizAdjacencia.c) | C         | Ok     |
+
+## Lista de algoritmos em Python
+
+| Algoritmo                                                                                           | Linguagem | Status |
+| --------------------------------------------------------------------------------------------------- | --------- | ------ |
+| [Matriz de adjacência](https://github.com/codeYann/grafos/blob/main/src/Python/matrizAdjacencia.py) | Python    | Ok     |
 
 ## LICENSE
 

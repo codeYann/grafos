@@ -21,6 +21,9 @@ Os algoritmos vão ser escritos, majoritariamente, em C e Python.
 | Algoritmo                                                                                           | Linguagem | Status |
 | --------------------------------------------------------------------------------------------------- | --------- | ------ |
 | [Matriz de adjacência](https://github.com/codeYann/grafos/blob/main/src/Python/matrizAdjacencia.py) | Python    | Ok     |
+| [Lista de adjacência](https://github.com/codeYann/grafos/blob/main/src/Python/listaAdjacencia.py)   | Python    | Ok     |
+
+|
 
 ## LICENSE
 

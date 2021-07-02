@@ -1,25 +1,38 @@
 # Lista de adjacência com um grafo ponderado K5
 
-class ListaAdj:
-    def __init__(self):
-        self.lista_adj = []
+from collections import defaultdict
 
-    def carregarLista(self, path):
-        arquivo = open(path, 'r')
-        lista = arquivo.readlines()
+class Grafo:
+    def __init__(self, n, type):
+        self.numeroVertices = n
+        self.grafo = defaultdict(list)
+        self.tipo = type
 
-        for i in range(len(lista)):
-            linhaAtual = lista[i].split()
+    def adicionarAresta(self, a, b):
+        self.grafo[a].append(b)
+
+    def percorrerLista(self):
+        for u in self.grafo.items():
+            print(u)
+
+    def carregarGrafo(self, path):
+        file = open(path, 'r')
+        listaVertices = file.readlines()
+        for i in range(len(listaVertices)):
+            verticesAtuais = listaVertices[i].split()
             if i == 0:
-                n = int(linhaAtual[0])
-                self.lista_adj = [[] for _ in range(n)]
+                pass
             else:
-                self.lista_adj[int(linhaAtual[0])].append({"Vertice": int(linhaAtual[1]), "Peso": float(linhaAtual[2])})
-                self.lista_adj[int(linhaAtual[1])].append({"Vertice": int(linhaAtual[0]), "Peso": float(linhaAtual[2])})
-        
-        arquivo.close()
-
-    def imprimirLista(self, n):
-        for i in range(n):
-            print("Vertice ", i, ":", self.lista_adj[i])
-            print()
+                if self.tipo == 'g':
+                    self.adicionarAresta(int(verticesAtuais[0]), int(verticesAtuais[1]))
+                    self.adicionarAresta(int(verticesAtuais[1]), int(verticesAtuais[0]))
+                else:
+                    self.adicionarAresta(
+                        int(verticesAtuais[0]), 
+                        {"Vertice": int(verticesAtuais[1]), "Peso": float(verticesAtuais[2])}
+                    )
+                    self.adicionarAresta(
+                        int(verticesAtuais[1]), 
+                        {"Vertice": int(verticesAtuais[0]), "Peso": float(verticesAtuais[2])}
+                    )
+        file.close()

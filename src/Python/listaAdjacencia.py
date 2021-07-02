@@ -11,7 +11,7 @@ class Grafo:
     def adicionarAresta(self, a, b):
         self.grafo[a].append(b)
 
-    def percorrerLista(self):
+    def percorrerGrafo(self):
         for u in self.grafo.items():
             print(u)
 

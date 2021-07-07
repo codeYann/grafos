@@ -3,10 +3,10 @@
 from collections import defaultdict
 
 class Grafo:
-    def __init__(self, n, type):
-        self.numeroVertices = n
+    def __init__(self, tipo):
         self.grafo = defaultdict(list)
-        self.tipo = type
+        self.tipo = tipo
+        self.length = 0
 
     def adicionarAresta(self, a, b):
         self.grafo[a].append(b)
@@ -21,9 +21,9 @@ class Grafo:
         for i in range(len(listaVertices)):
             verticesAtuais = listaVertices[i].split()
             if i == 0:
-                pass
+                self.length = int(verticesAtuais[0])
             else:
-                if self.tipo == 'g':
+                if self.tipo != 'w':
                     self.adicionarAresta(int(verticesAtuais[0]), int(verticesAtuais[1]))
                     self.adicionarAresta(int(verticesAtuais[1]), int(verticesAtuais[0]))
                 else:

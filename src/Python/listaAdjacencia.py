@@ -4,16 +4,16 @@ from collections import defaultdict
 
 class Grafo:
     def __init__(self, peso):
-        self.grafo = defaultdict(list)
+        self.lista_adj = defaultdict(list)
         self.peso = peso
         self.tipo = None
         self.length = 0
 
     def adicionarAresta(self, a, b):
-        self.grafo[a].append(b)
+        self.lista_adj[a].append(b)
 
     def percorrerGrafo(self):
-        for u in self.grafo.items():
+        for u in self.lista_adj.items():
             print(u)
 
     def carregarGrafo(self, path):

@@ -9,7 +9,7 @@ def DFS_VISIT(lista_adj, vertice, setVertices):
 
 def DFS(G):
     verticesVizitados = set()
-    for vertices in G.lista_adj.keys():
+    for vertices in list(G.lista_adj.keys()):
         if vertices not in verticesVizitados:
             DFS_VISIT(G.lista_adj, vertices, verticesVizitados)
     return verticesVizitados

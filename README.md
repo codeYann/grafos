@@ -22,7 +22,8 @@ Os algoritmos vão ser escritos, majoritariamente, em C e Python.
 | --------------------------------------------------------------------------------------------------- | --------- | ------ |
 | [Matriz de adjacência](https://github.com/codeYann/grafos/blob/main/src/Python/matrizAdjacencia.py) | Python    | Ok     |
 | [Lista de adjacência](https://github.com/codeYann/grafos/blob/main/src/Python/listaAdjacencia.py)   | Python    | Ok     |
-| [Busca em Profundidade](https://github.com/codeYann/grafos/blob/main/src/Python/DFS.py)   | Python    | Ok     
+| [Busca em Profundidade](https://github.com/codeYann/grafos/blob/main/src/Python/DFS.py)             | Python    | Ok     |
+| [Busca em Largura](https://github.com/codeYann/grafos/blob/main/src/Python/BFS.py)                  | Python    | Ok     |
 
 ## LICENSE
 

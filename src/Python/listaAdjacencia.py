@@ -13,8 +13,11 @@ class Grafo:
         self.lista_adj[a].append(b)
 
     def percorrerGrafo(self):
-        for u in self.lista_adj.items():
-            print(u)
+        for u in list(self.lista_adj.items()):
+            print(u, self.lista_adj[u])
+    
+    def listaVertices(self):
+        return [u for u in list(self.lista_adj.items())]
 
     def carregarGrafo(self, path):
         # Lendo o arquivo no qual todos os dados do grafo estão contidos!

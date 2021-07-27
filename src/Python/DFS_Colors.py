@@ -1,19 +1,46 @@
 from listaAdjacencia import Grafo
+mark = 0
 
-def vetoresDeEstado(length):
-    return [0] * length
+def DFS_VISIT(lista_adj, v, grafoInfo, arestas):
+    global mark 
+    mark = mark + 1
+    grafoInfo["D"][v] = mark
+    grafoInfo["cores"][v] = "C"
+    for u in lista_adj[v]:
+        if grafoInfo["cores"][u] == "B" and grafoInfo["cores"][v] == "C":
+            arestas["arvore"].append((v, u))
+        elif grafoInfo["cores"][u] == "C" and grafoInfo["cores"][v] == "C":
+            arestas["retorno"].append((v, u))
+        else:
+            if grafoInfo["D"][v] < grafoInfo["D"][u]:
+                arestas["avanco"].append((v, u))
+            else:
+                arestas["cruzamento"].append((v, u))
+        if grafoInfo["cores"][v] == "B":
+            DFS_VISIT(lista_adj, u, grafoInfo, arestas)
+    mark = mark + 1
+    grafoInfo["F"][v] = mark
+    grafoInfo["cores"][v] == "P"
 
-def DFS_VISIT(lista_adj, vertice, vetorCores):
-    vetorCores[vertice] = "G"
-    print("Vertices visitados: {}".format(vertice))
-    for v in lista_adj[vertice]:
-        if vetorCores[v] == "W":
-            DFS_VISIT(lista_adj, v, vetorCores)
-    vetorCores[vertice] = "B"
+def DFS(G, lista_adj, lista_vertice):
+    global mark
+    mark = 0
 
-def DFS(Grafo):
-    cores = ["W" for _ in range(Grafo.length)] 
-    for vertice in list(Grafo.list_adj.keys()):
-        if cores[vertice] == "W":
-            DFS_VISIT(Grafo.list_adj, vertice, cores)
-    return cores
+    grafoInfo = {
+        "cores": ["B"] * G.length,
+        "D": [0] * G.length, # Momento em que o grafo é vizitado
+        "F": [0] * G.length # Momento em que o grafo não possui nenhum vizinho para se vizitar
+    }
+
+    # Nomenclatura das arestas
+    arestas = {
+        "arvore": [],
+        "retorno": [],
+        "cruzamento": [],
+        "avanco": []
+    }
+
+    for v in lista_vertice:
+        if grafoInfo["cores"][v] == "B":
+            DFS_VISIT(lista_adj, v, grafoInfo, arestas)
+    return grafoInfo, arestas

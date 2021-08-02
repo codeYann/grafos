@@ -8,6 +8,7 @@ class Grafo:
         self.peso = peso
         self.tipo = None
         self.length = 0
+        self.weight = {}
 
     def adicionarAresta(self, a, b):
         self.lista_adj[a].append(b)
@@ -19,6 +20,12 @@ class Grafo:
     def listaVertices(self):
         return [u for u in list(self.lista_adj.items())]
 
+    def carregarPesos(self, u, v, peso):
+        self.weight[(u, v)] = peso
+
+    def dist(self, u, v):
+        return self.weight[(u,v)]
+        
     def carregarGrafo(self, path):
         # Lendo o arquivo no qual todos os dados do grafo estão contidos!
         file = open(path, 'r')
@@ -34,38 +41,37 @@ class Grafo:
                 if i == 0:
                     pass
                 else:
-                    if self.peso == False:
-                        self.adicionarAresta(
-                            int(verticesAtuais[0]), 
-                            int(verticesAtuais[1])
-                        )
-                    else:
-                        self.adicionarAresta(
-                            int(verticesAtuais[0]), 
-                            {"Vertice": int(verticesAtuais[1]), "Peso": float(verticesAtuais[2])}
-                        )
+                    if self.peso == True:
+                        self.carregarPesos(int(verticesAtuais[0]), int(verticesAtuais[1]), int(verticesAtuais[2]))
+
+                    self.adicionarAresta(
+                        int(verticesAtuais[0]), 
+                        int(verticesAtuais[1])
+                    )
             else:
                 if i == 0:
                     pass
                 else:
-                    if self.peso == False:
-                        self.adicionarAresta(
-                            int(verticesAtuais[0]), 
-                            int(verticesAtuais[1])
-                        )
-                        self.adicionarAresta(
-                            int(verticesAtuais[1]), 
-                            int(verticesAtuais[0])
-                        )
-                    else:
-                        self.adicionarAresta(
-                            int(verticesAtuais[0]),
-                            {"Vertice": int(verticesAtuais[1]), "Peso": float(
-                                verticesAtuais[2])}
-                        )
-                        self.adicionarAresta(
-                            int(verticesAtuais[1]),
-                            {"Vertice": int(verticesAtuais[0]), "Peso": float(
-                                verticesAtuais[2])}
-                        )
+                    if self.peso == True:
+                        self.carregarPesos(int(verticesAtuais[0]), int(verticesAtuais[1]), int(verticesAtuais[2]))
+                        self.carregarPesos(int(verticesAtuais[1]), int(verticesAtuais[0]), int(verticesAtuais[2]))
+                        
+                    self.adicionarAresta(
+                        int(verticesAtuais[0]), 
+                        int(verticesAtuais[1])
+                    )
+                    self.adicionarAresta(
+                        int(verticesAtuais[1]), 
+                        int(verticesAtuais[0])
+                    )
+                
+                    # else:
+                    #     self.adicionarAresta(
+                    #         int(verticesAtuais[0]),
+                    #         {"Vertice": int(verticesAtuais[1]), "Peso": int(verticesAtuais[2])}
+                    #     )
+                    #     self.adicionarAresta(
+                    #         int(verticesAtuais[1]),
+                    #         {"Vertice": int(verticesAtuais[0]), "Peso": int(verticesAtuais[2])}
+                    #     )
         file.close()

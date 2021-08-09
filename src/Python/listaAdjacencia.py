@@ -1,5 +1,3 @@
-# Lista de adjacência com um grafo ponderado K5
-
 from collections import defaultdict
 
 class Grafo:
@@ -9,6 +7,7 @@ class Grafo:
         self.tipo = None
         self.length = 0
         self.weight = {}
+        self.edges = []
 
     def adicionarAresta(self, a, b):
         self.lista_adj[a].append(b)
@@ -48,6 +47,7 @@ class Grafo:
                         int(verticesAtuais[0]), 
                         int(verticesAtuais[1])
                     )
+                    self.edges.append((int(verticesAtuais[0]), int(verticesAtuais[1])))
             else:
                 if i == 0:
                     pass
@@ -64,14 +64,6 @@ class Grafo:
                         int(verticesAtuais[1]), 
                         int(verticesAtuais[0])
                     )
-                
-                    # else:
-                    #     self.adicionarAresta(
-                    #         int(verticesAtuais[0]),
-                    #         {"Vertice": int(verticesAtuais[1]), "Peso": int(verticesAtuais[2])}
-                    #     )
-                    #     self.adicionarAresta(
-                    #         int(verticesAtuais[1]),
-                    #         {"Vertice": int(verticesAtuais[0]), "Peso": int(verticesAtuais[2])}
-                    #     )
+                    self.edges.append((int(verticesAtuais[0]), int(verticesAtuais[1])))
+                                    
         file.close()

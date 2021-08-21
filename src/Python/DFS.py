@@ -1,5 +1,3 @@
-from listaAdjacencia import Grafo
-
 def DFS_VISIT(lista_adj, vertice, setVertices):
     setVertices.add(vertice)
     print("Vertices visitados: {}".format(vertice))

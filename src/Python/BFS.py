@@ -1,4 +1,3 @@
-from listaAdjacencia import Grafo
 from collections import deque
 
 def BFS(G, vertice):

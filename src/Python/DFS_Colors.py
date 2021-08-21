@@ -1,4 +1,3 @@
-from listaAdjacencia import Grafo
 mark = 0
 
 def DFS_VISIT(lista_adj, v, grafoInfo, arestas):

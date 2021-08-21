@@ -1,11 +1,3 @@
-#  Seja G = <V, E> um grafo simples (sem paralelas e laços) e A = [a]ij a matriz que representará nosso grafo G
-
-#  Matriz de adjacência é uma das formas de se representar computacionalmente um grafo.
-#  A ideia é basicamente criar uma matriz n por n, onde n = |V|
-
-#  (1) em um grafo simples, se i == j, [aij] = 0
-#  (2) caso exista uma aresta entre os vertices de G, [aij] = 1
-
 import numpy as np
 
 class MatrizAdj:
